@@ -1,0 +1,19 @@
+.SummonerSearch {
+    display: flex;
+    justify-content: center;
+}
+.SummonerSearch-name {
+    width: 30vw;
+}
+.SummonerSearch-label, 
+.SummonerSearch-select, 
+.SummonerSearch-select svg,
+.SummonerSearch-input-text {
+    color: white !important;
+}
+.SummonerSearch-input {
+    border-color: white !important;
+}
+.SummonerSearch-select::before {
+    border-color: white !important;
+}

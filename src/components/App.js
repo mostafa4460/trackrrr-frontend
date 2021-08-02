@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import HomePage from "./HomePage";
+import SummonerProfile from "./SummonerProfile";
 
 const theme = createTheme({
   palette: {
@@ -18,6 +19,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
+          </Route>
+          <Route exact path="/summoners/:region/:name">
+            <SummonerProfile />
           </Route>
           <Redirect to="/" />
         </Switch>
