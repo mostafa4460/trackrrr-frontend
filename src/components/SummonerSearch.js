@@ -11,7 +11,7 @@ import {
 import { Search } from '@material-ui/icons';
 import './SummonerSearch.css';
 
-const SummonerSearch = () => {
+const SummonerSearch = ({smaller}) => {
     const [search, setSearch] = useState({name: "", server: "na1"});
     const history = useHistory();
     const handleChange = evt => {
@@ -34,6 +34,7 @@ const SummonerSearch = () => {
                 variant="outlined"
                 name="name"
                 required
+                size={smaller ? "small" : "medium"}
                 value={search.name}
                 onChange={handleChange}
                 InputLabelProps={{

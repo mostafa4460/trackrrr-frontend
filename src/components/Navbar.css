@@ -1,0 +1,14 @@
+.Navbar-logo-container {
+    flex: 1;
+}
+.Navbar-logo {
+    display: inline-flex;
+    align-items: center;
+}
+.Navbar-logo:hover {
+    color: black;
+    cursor: pointer;
+}
+.Navbar-logo svg {
+    margin-right: 4px;
+}
