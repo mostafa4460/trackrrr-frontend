@@ -4,6 +4,7 @@ import { Container } from '@material-ui/core';
 import getSummonerFromAPI from '../api';
 import Spinner from './Spinner';
 import Navbar from './Navbar';
+import ErrorPage from './ErrorPage';
 import './SummonerProfile.css';
 
 // regions supported by the League of Legends API
@@ -39,7 +40,13 @@ const SummonerProfile = () => {
                 {loading 
                 ? <Spinner />
                 : (
-                    <div></div>
+                    <>
+                        {error
+                        ? <ErrorPage msg={error} />
+                        : (
+                            <h2>Ok</h2>
+                        )}
+                    </>
                 )}
             </Container>
         </>

@@ -1,3 +1,7 @@
+.Navbar {
+    margin-bottom: 40px;
+}
+
 .Navbar-logo-container {
     flex: 1;
 }
