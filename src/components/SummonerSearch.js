@@ -6,12 +6,13 @@ import {
     Select, 
     MenuItem,
     IconButton,
-    InputAdornment
+    InputAdornment,
+    CircularProgress
 } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import './SummonerSearch.css';
 
-const SummonerSearch = ({smaller}) => {
+const SummonerSearch = ({smaller, loading}) => {
     const [search, setSearch] = useState({name: "", server: "na1"});
     const history = useHistory();
     const handleChange = evt => {
@@ -23,7 +24,8 @@ const SummonerSearch = ({smaller}) => {
     };
     const goToSummonerPage = evt => {
         evt.preventDefault();
-        return history.push(`/summoners/${search.server}/${search.name}`);
+        history.push(`/summoners/${search.server}/${search.name}`);
+        setSearch(s => ({name: "", server: s.server}));
     };
 
     return (
@@ -69,8 +71,8 @@ const SummonerSearch = ({smaller}) => {
                                     <MenuItem value="ru">RU</MenuItem>
                                 </Select>
                             </FormControl>
-                            <IconButton color="primary" type="submit">
-                                <Search />
+                            <IconButton color="primary" type="submit" disabled={loading}>
+                                {loading ? <CircularProgress /> : <Search />}
                             </IconButton>
                         </InputAdornment>
                     )

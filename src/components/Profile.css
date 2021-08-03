@@ -1,0 +1,36 @@
+.Profile {
+    display: flex;
+}
+
+.Profile-img-container {
+    position: relative;
+    margin-right: 25px;
+}
+.Profile-img {
+    width: 128px;
+    height: 128px;
+    border: 4px solid #0e95eb;
+    border-radius: 100px;
+}
+.Profile-level {
+    background-color: #0e95eb !important;
+    font-weight: bold;
+    width: 50px !important;
+    height: 30px !important;
+    position: absolute;
+    left: 42px;
+    bottom: 25px;
+}
+
+.Profile-name-container {
+    margin-top: 10px;
+}
+.Profile-name {
+    margin-bottom: 16px !important;
+}
+.Profile-update {
+    margin-bottom: 5px !important;
+}
+.Profile-updated-text {
+    color: #99a2a2;
+}

@@ -5,6 +5,7 @@ import getSummonerFromAPI from '../api';
 import Spinner from './Spinner';
 import Navbar from './Navbar';
 import ErrorPage from './ErrorPage';
+import Profile from './Profile';
 import './SummonerProfile.css';
 
 // regions supported by the League of Legends API
@@ -18,12 +19,14 @@ const SummonerProfile = () => {
     const history = useHistory();
     useEffect(() => {
         if (!SUPPORTED_REGIONS.includes(region)) {
-            return history.replace('/');
+            history.replace('/');
         } else {
+            setLoading(true);
             async function getSummoner() {
                 try {
                     const s = await getSummonerFromAPI(name, region);
                     setSummoner(s);
+                    setError(false);
                 } catch(err) {
                     setError(err);
                 }
@@ -35,7 +38,7 @@ const SummonerProfile = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar loading={loading} />
             <Container>
                 {loading 
                 ? <Spinner />
@@ -44,7 +47,11 @@ const SummonerProfile = () => {
                         {error
                         ? <ErrorPage msg={error} />
                         : (
-                            <h2>Ok</h2>
+                            <Profile 
+                                name={summoner.name} 
+                                summonerProfile={summoner.profile}
+                                lastUpdated={summoner.lastUpdated} 
+                            />
                         )}
                     </>
                 )}
