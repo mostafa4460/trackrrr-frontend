@@ -1,5 +1,6 @@
 .Profile {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .Profile-img-container {

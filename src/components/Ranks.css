@@ -1,0 +1,18 @@
+.Ranks-solo, .Ranks-flex {
+    display: flex;
+    border: 1px solid #cdd2d2;
+    box-shadow: 0 1px #dcdfdf;
+    padding: 20px 35px;
+}
+.Ranks-flex {
+    margin-top: 10px;
+}
+.Ranks-solo p, .Ranks-flex p {
+    margin: 0;
+}
+
+.Ranks-img {
+    width: 110px;
+    height: 110px;
+    margin-right: 20px;
+}
