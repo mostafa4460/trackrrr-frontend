@@ -39,7 +39,7 @@ const SummonerProfile = () => {
 
     return (
         <>
-            <Navbar loading={loading} />
+            <Navbar loading={loading} setLoading={setLoading} />
             <Container>
                 {loading 
                 ? <Spinner />

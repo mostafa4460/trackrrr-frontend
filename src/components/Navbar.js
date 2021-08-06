@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import SummonerSearch from './SummonerSearch';
 import './Navbar.css';
 
-const Navbar = ({loading}) => {
+const Navbar = ({loading, setLoading}) => {
     const history = useHistory();
     const goHome = () => history.push("/");
 
@@ -19,7 +19,10 @@ const Navbar = ({loading}) => {
                         </Typography>
                     </div>
                 </div>
-                <SummonerSearch loading={loading} smaller={true} />
+                <SummonerSearch 
+                    loading={loading}
+                    setLoading={setLoading} 
+                    smaller={true} />
             </Toolbar>
         </AppBar>
     );
