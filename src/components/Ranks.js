@@ -19,7 +19,7 @@ const Ranks = ({ranks}) => {
                         </p>
                         <p>{soloRank.leaguePoints} LP</p>
                         <p>{soloRank.wins}W / {soloRank.losses}L</p>
-                        <p>{Math.round(soloRank.wins / (soloRank.wins + soloRank.losses) * 100)}% Win Ratio</p>
+                        <p>{Math.round(soloRank.wins / (soloRank.wins + soloRank.losses) * 100)}% Win Rate</p>
                     </> 
                     ) : <p>Unranked</p>}
                 </div>
@@ -37,7 +37,7 @@ const Ranks = ({ranks}) => {
                         </p>
                         <p>{flexRank.leaguePoints} LP</p>
                         <p>{flexRank.wins}W / {flexRank.losses}L</p>
-                        <p>{Math.round(flexRank.wins / (flexRank.wins + flexRank.losses) * 100)}% Win Ratio</p>
+                        <p>{Math.round(flexRank.wins / (flexRank.wins + flexRank.losses) * 100)}% Win Rate</p>
                     </> 
                     ) : <p>Unranked</p>}
                 </div>

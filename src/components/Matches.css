@@ -1,0 +1,18 @@
+.Matches {
+    border: 1px solid #cdd2d2;
+    box-shadow: 0 1px #dcdfdf;
+}
+
+.Matches-nav {
+    color: black !important;
+    font-weight: bold !important;
+}
+.Matches-nav-selected {
+    color: #0e95eb !important;
+}
+
+.NoMatchesFound {
+    text-align: center;
+    padding: 20px;
+    color: #0e95eb;
+}
