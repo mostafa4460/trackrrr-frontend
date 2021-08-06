@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Container, Grid } from '@material-ui/core';
-import getSummonerFromAPI from '../api';
+import { getSummoner, updateSummoner } from '../api';
 import Spinner from './Spinner';
 import Navbar from './Navbar';
 import ErrorPage from './ErrorPage';
@@ -18,14 +18,20 @@ const SummonerProfile = () => {
     const [loading, setLoading] = useState(true);
     const {region, name} = useParams();
     const history = useHistory();
+    const updateSummonerFromAPI = async () => {
+        setLoading(true);
+        const updatedSummoner = await updateSummoner(name, region);
+        setSummoner(updatedSummoner);
+        setLoading(false);
+    };
     useEffect(() => {
         if (!SUPPORTED_REGIONS.includes(region)) {
             history.replace('/');
         } else {
             setLoading(true);
-            async function getSummoner() {
+            async function getSummonerFromAPI() {
                 try {
-                    const s = await getSummonerFromAPI(name, region);
+                    const s = await getSummoner(name, region);
                     setSummoner(s);
                     setError(false);
                 } catch(err) {
@@ -33,7 +39,7 @@ const SummonerProfile = () => {
                 }
                 setLoading(false);
             }
-            getSummoner();
+            getSummonerFromAPI();
         }
     }, [history, name, region]);
 
@@ -53,7 +59,8 @@ const SummonerProfile = () => {
                                     <Profile 
                                         name={summoner.name} 
                                         summonerProfile={summoner.profile}
-                                        lastUpdated={summoner.lastUpdated} 
+                                        lastUpdated={summoner.lastUpdated}
+                                        updateSummoner={updateSummonerFromAPI}
                                     />
                                 </Grid>
                                 <Grid container item xs>

@@ -13,4 +13,18 @@ const getSummoner = async (name, region) => {
     };
 };
 
-export default getSummoner;
+const updateSummoner = async (name, region) => {
+    try {
+        const resp = await axios.get(`${BASE_URL}/summoners/${region}/${name}/update`);
+        return resp.data.summoner;
+    } catch (err) {
+        console.error("API Error:", err.response);
+        let message = err.response.data.error.message;
+        throw message;
+    };
+};
+
+export {
+    getSummoner,
+    updateSummoner
+};

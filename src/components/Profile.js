@@ -2,9 +2,8 @@ import { Tooltip, Avatar, Typography, Button } from '@material-ui/core';
 import moment from 'moment';
 import './Profile.css';
 
-const Profile = ({name, summonerProfile, lastUpdated}) => {
+const Profile = ({name, summonerProfile, lastUpdated, updateSummoner}) => {
     const {profileIconId, summonerLevel} = summonerProfile;
-    
     return (
         <div className="Profile">
             <div className="Profile-img-container">
@@ -27,6 +26,7 @@ const Profile = ({name, summonerProfile, lastUpdated}) => {
                     variant="contained" 
                     color="secondary" 
                     className="Profile-update"
+                    onClick={updateSummoner}
                 >
                     Update
                 </Button>
