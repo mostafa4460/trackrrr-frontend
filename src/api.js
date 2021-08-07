@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.BACKEND_BASE_URL || "http://localhost:3001";
+const BASE_URL = "https://trackrrr-backend.herokuapp.com";
 
 const getSummoner = async (name, region) => {
     try {
